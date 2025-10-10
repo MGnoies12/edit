@@ -1,10 +1,17 @@
 /* ----- متغیرها و تنظیمات اولیه ----- */
 :root {
-    --primary-color: #1a1a1a;
-    --accent-color: #ff4757;
+    --primary-color: #0f0f0f;
+    /* پس‌زمینه تیره‌تر برای کنتراست بهتر */
+    --accent-color: #a855f7;
+    /* بنفش برای حس خلاقیت */
     --text-color: #f1f1f1;
-    --bg-light: #f9f9f9;
-    --font-family: 'Vazirmatn', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    /* پس‌زمینه شیشه‌ای */
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --font-heading: 'B Nazanin', 'Vazirmatn', sans-serif;
+    /* فونت تیتر */
+    --font-body: 'Laleh Zarr', 'Vazirmatn', sans-serif;
+    /* فونت متن */
 }
 
 * {
@@ -18,32 +25,76 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-body);
     background-color: var(--primary-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
+    /* اضافه کردن فونت‌ها (اگر به صورت وب‌فونت اضافه نکنید، این بخش کار نمی‌کند) */
+    font-family: 'B Nazanin', 'Laleh Zarr', 'Vazirmatn', sans-serif;
+}
+
+/* ----- پس‌زمینه متحرک و گرافیکی ----- */
+.animated-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 80px 20px;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-size: 3rem;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 50px;
-    position: relative;
+    margin-bottom: 60px;
+    background: linear-gradient(to right, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ----- کارت شیشه‌ای (گلس مورفیسم) ----- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 /* ----- انیمیشن ظاهر شدن ----- */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in.is-visible {
@@ -58,16 +109,19 @@ body {
     left: 0;
     width: 100%;
     padding: 20px 40px;
-    background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
@@ -80,9 +134,11 @@ body {
 }
 
 .main-nav a {
+    font-family: var(--font-heading);
     color: var(--text-color);
     text-decoration: none;
     font-weight: 400;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
@@ -147,15 +203,21 @@ body {
     z-index: -1;
 }
 
-.hero-content h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 900;
+.hero-content {
     max-width: 800px;
+    padding: 60px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -163,22 +225,29 @@ body {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 25px;
 }
 
 .portfolio-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
     aspect-ratio: 3 / 2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.6s ease;
 }
 
 .item-overlay {
@@ -187,7 +256,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(168, 85, 247, 0.7);
+    /* رنگ بنفش با شفافیت */
     color: white;
     display: flex;
     flex-direction: column;
@@ -205,12 +275,12 @@ body {
     transform: scale(1.1);
 }
 
-/* ----- بخش درباره من ----- */
-.bg-light {
-    background-color: var(--bg-light);
-    color: var(--primary-color);
+.item-overlay h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
 }
 
+/* ----- بخش درباره من ----- */
 .about-content {
     display: flex;
     align-items: center;
@@ -220,48 +290,58 @@ body {
 .about-img {
     max-width: 300px;
     border-radius: 50%;
+    border: 5px solid var(--glass-border);
     flex-shrink: 0;
 }
 
 .about-text p {
+    font-size: 1.2rem;
     margin-bottom: 15px;
 }
 
-/* ----- بخش تماس ----- */
+/* ----- بخش تماس و دکمه‌ها ----- */
 #contact {
     text-align: center;
 }
 
-.contact-info {
-    margin-top: 20px;
-    font-size: 1.1rem;
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
 }
 
-.contact-info p {
-    margin-bottom: 10px;
-}
-
-.contact-info a {
-    color: var(--accent-color);
+.glass-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
     text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
     font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 rgba(31, 38, 135, 0.2);
 }
 
-.contact-info a:hover {
-    text-decoration: underline;
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px 0 rgba(31, 38, 135, 0.4);
 }
 
 /* ----- فوتر ----- */
 .main-footer {
     text-align: center;
     padding: 30px 20px;
-    border-top: 1px solid #333;
-}
-
-.social-links a {
-    color: var(--text-color);
-    margin: 0 10px;
-    text-decoration: none;
+    border-top: 1px solid var(--glass-border);
+    font-family: var(--font-body);
+    font-size: 1rem;
 }
 
 /* ----- رسانه‌های واکنش‌گرا (موبایل) ----- */
@@ -279,13 +359,16 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(26, 26, 26, 0.95);
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
         gap: 15px;
         transform: translateY(-150%);
         transition: transform 0.5s ease-in-out;
+        border-bottom: 1px solid var(--glass-border);
     }
 
     .main-nav ul.is-open {
@@ -295,5 +378,14 @@ body {
     .about-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .glass-button {
+        width: 80%;
     }
 }
