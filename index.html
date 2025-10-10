@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نام شما - طراح گرافیک</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- فراخوانی فونت فارک زیبا -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ========== منوی ناوبری ========== -->
+    <header class="main-header">
+        <div class="logo">نام شما</div>
+        <nav class="main-nav">
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul>
+                <li><a href="#works">نمونه‌کارها</a></li>
+                <li><a href="#about">درباره من</a></li>
+                <li><a href="#services">خدمات</a></li>
+                <li><a href="#contact">تماس</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ========== بخش اصلی با ویدیو ========== -->
+        <section class="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <!-- !!! این ویدیو رو باید خودت بسازی و جایگزین کنی !!! -->
+                <source src="your-creation-video.mp4" type="video/mp4">
+                مرورگر شما ویدیو را پشتیبانی نمی‌کند.
+            </video>
+            <div class="hero-content">
+                <h1 class="fade-in">من داستان‌ها را به زبان بصری روایت می‌کنم.</h1>
+                <p class="fade-in">طراح گرافیک | متخصص هویت بصری برند</p>
+            </div>
+        </section>
+
+        <!-- ========== بخش نمونه‌کارها ========== -->
+        <section id="works" class="container">
+            <h2 class="section-title fade-in">نمونه‌کارها</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <img src="https://via.placeholder.com/600x400.png?text=پروژه+۱" alt="پروژه ۱">
+                    <div class="item-overlay">
+                        <h3>عنوان پروژه ۱</h3>
+                        <p>هویت بصری برند X</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://via.placeholder.com/600x400.png?text=پروژه+۲" alt="پروژه ۲">
+                    <div class="item-overlay">
+                        <h3>عنوان پروژه ۲</h3>
+                        <p>پوستر کنسرت موسیقی</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://via.placeholder.com/600x400.png?text=پروژه+۳" alt="پروژه ۳">
+                    <div class="item-overlay">
+                        <h3>عنوان پروژه ۳</h3>
+                        <p>طراحی جلد کتاب</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <img src="https://via.placeholder.com/600x400.png?text=پروژه+۴" alt="پروژه ۴">
+                    <div class="item-overlay">
+                        <h3>عنوان پروژه ۴</h3>
+                        <p>بسته‌بندی محصول</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== بخش درباره من ========== -->
+        <section id="about" class="container bg-light">
+            <h2 class="section-title fade-in">درباره من</h2>
+            <div class="about-content">
+                <img src="https://via.placeholder.com/300x300.png?text=عکس+شما" alt="عکس من" class="about-img fade-in">
+                <div class="about-text fade-in">
+                    <p>من یک طراح گرافیک پرشور هستم که به دنبال تبدیل ایده‌های انتزاعی به تصاویر ملموس و تأثیرگذارم.
+                        تمرکز من بر روی خلق هویت‌های بصری منحصر به فرد است که داستان یک برند را به بهترین شکل روایت
+                        می‌کنند.</p>
+                    <p>با ترکیب دانش تئوری طراحی و مهارت در ابزارهای دیجیتال، به مشتریانم کمک می‌کنم تا در دنیای شلوغ
+                        امروز، صدای خود را به گوش برسانند.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== بخش تماس ========== -->
+        <section id="contact" class="container">
+            <h2 class="section-title fade-in">بیایید خلق کنیم</h2>
+            <p class="fade-in">برای پروژه بعدی خود، یک ایده دارید؟ با من در تماس باشید.</p>
+            <a href="mailto:your.email@example.com" class="cta-button fade-in">ارسال ایمیل</a>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 نام شما. تمام حقوق محفوظ است.</p>
+        <div class="social-links">
+            <a href="#">اینستاگرام</a>
+            <a href="#">لینکدین</a>
+            <a href="#">behance</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
