@@ -23,7 +23,6 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
-    /* جلوگیری از اسکرول افقی */
 }
 
 .container {
@@ -93,7 +92,6 @@ body {
 
 .nav-toggle {
     display: none;
-    /* در دسکتاپ مخفی */
     background: none;
     border: none;
     cursor: pointer;
@@ -234,21 +232,23 @@ body {
     text-align: center;
 }
 
-.cta-button {
-    display: inline-block;
+.contact-info {
     margin-top: 20px;
-    padding: 15px 30px;
-    background-color: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
 }
 
-.cta-button:hover {
-    background-color: #e63946;
-    transform: translateY(-3px);
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
 }
 
 /* ----- فوتر ----- */
@@ -272,7 +272,6 @@ body {
 
     .nav-toggle {
         display: block;
-        /* نمایش دکمه همبرگر */
     }
 
     .main-nav ul {
@@ -286,13 +285,11 @@ body {
         padding: 20px 0;
         gap: 15px;
         transform: translateY(-150%);
-        /* مخفی کردن منو */
         transition: transform 0.5s ease-in-out;
     }
 
     .main-nav ul.is-open {
         transform: translateY(0);
-        /* نمایش منو */
     }
 
     .about-content {
