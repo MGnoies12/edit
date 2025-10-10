@@ -309,7 +309,9 @@ body {
     font-size: 1rem;
 }
 
-/* ----- رسانه‌های واکنش‌گرا (موبایل) ----- */
+/* ======================================= */
+/* !!! رسانه‌های واکنش‌گرا (موبایل) !!! */
+/* ======================================= */
 @media (max-width: 768px) {
     .main-header {
         padding: 15px 20px;
@@ -319,25 +321,40 @@ body {
         display: block;
     }
 
+    /* ======================================= */
+    /* !!! این بخش تغییر کرده است !!! */
+    /* ======================================= */
     .main-nav ul {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        /* پس‌زمینه جدید با بلور قوی‌تر */
+        background: rgba(15, 15, 15, 0.95);
+        /* پس‌زمینه تیره و شفافیت کمتر */
+        backdrop-filter: blur(20px);
+        /* بلور قوی‌تر */
+        -webkit-backdrop-filter: blur(20px);
+        /* بلور قوی‌تر برای سافاری */
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
-        gap: 15px;
+        padding: 40px 0;
+        /* افزایش فاصله عمودی */
+        gap: 25px;
+        /* افزایش فاصله بین آیتم‌ها */
         transform: translateY(-150%);
         transition: transform 0.5s ease-in-out;
-        border-bottom: 1px solid var(--glass-border);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* کمرنگ‌تر شدن خط */
     }
 
     .main-nav ul.is-open {
         transform: translateY(0);
+    }
+
+    /* بزرگتر کردن فونت منو در موبایل برای خوانایی بهتر */
+    .main-nav ul a {
+        font-size: 1.5rem;
     }
 
     .about-content {
